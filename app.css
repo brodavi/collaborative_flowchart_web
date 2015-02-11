@@ -1,0 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  min-height: 100%;
+  background: #D0D0D0;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(#F0F0F0), to(#B0B0B0));
+  background: -webkit-radial-gradient(#F0F0F0, #B0B0B0);
+  background:    -moz-radial-gradient(#F0F0F0, #B0B0B0);
+  background:      -o-radial-gradient(#F0F0F0, #B0B0B0);
+  background:         radial-gradient(#F0F0F0, #B0B0B0);
+  -webkit-font-smoothing: antialiased;
+}
+
+.text {
+  font-family: "Arial";
+  line-height: 1.1;
+  outline: 0;
+  position: absolute;
+  min-width: 2px;
+  cursor: text;
+  word-wrap: break-word;
+  white-space: pre;
+  transition-duration: inherit;
+}
+
+#notice {
+    background: #000; color:#fff;
+    position:absolute;
+    width: 120px;
+    top: 10px;
+    right:10px;
+    z-index: 10;
+    padding: 10px;
+    font-family: "Arial";
+    opacity: 0.4;
+}

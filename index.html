@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>collaborative_flowchart</title>
+    <style type="text/css">
+      .end-element { background-color : #FFCCFF; }
+    </style>
+
+    <link href="app.css" rel="stylesheet">
+
+    <script src="raphael-min.js"></script>
+    <script src="flowchart-1.3.4.min.js"></script>
+
+  </head>
+  <body>
+    <h3>collaborative_flowchart</h3>
+    <div>
+      <textarea id="graphtext" style="width: 100%;" rows="11"></textarea>
+    </div>
+
+    <div id="notice">
+      <div id="users">1 user right now</div>
+    </div>
+
+    <button id="savebutton">SAVE
+    </button>
+
+    <div id="canvas"></div>
+
+    <script type="text/javascript" src="bundle.js"></script>
+  </body>
+</html>
