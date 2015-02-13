@@ -5,24 +5,34 @@ var config = require('./config').config;
 var socket = io(config.apiServer);
 
 var g = document.getElementById('graph');
-var graphtext = document.getElementById('graphtext');
+var graphtextarea = document.getElementById('graphtextarea');
+var chattextarea = document.getElementById('chattextarea');
 var gContainer = document.getElementById('graph-container');
-var savebutton = document.getElementById('savebutton');
-var renderbutton = document.getElementById("renderbutton");
 
 var tempId = 0;
 
-function emitChange() {
-  socket.emit('graph', graphtext.value);
+function updateGraph () {
+  socket.emit('graph', graphtextarea.value);
+  renderGraph(graphtextarea.value);
 }
 
-savebutton.addEventListener('click', emitChange);
+function updateChat () {
+  socket.emit('chat', chattextarea.value);
+}
+
+graphtextarea.addEventListener('input', updateGraph);
+
+chattextarea.addEventListener('input', updateChat);
 
 socket.on('new id', function (data) { $('#tempId' + data.tempId).attr('id', 'id' + data.id); });  
 
 socket.on('graph', function (data) { 
-  graphtext.value = data;
+  graphtextarea.value = data;
   renderGraph(data);
+});
+
+socket.on('chat', function (data) {
+  chattextarea.value = data;
 });
 
 socket.on('usercount', function(userCount) { $('#users').html(userCount + ' user' + ((userCount > 1) ? 's ':' ') + 'right now'); });
